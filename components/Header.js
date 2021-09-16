@@ -60,9 +60,9 @@ function Header() {
           <MenuIcon className='h-6 mr-1' />
           All
         </p>
-        <p className='Link'>Prime Video</p>
-        <p className='Link'>Amazon Business</p>
-        <p className='Link'>Todays's Deals</p>
+        <p className='Link text-xs md:text-md'>Prime Video</p>
+        <p className='Link text-xs md:text-md'>Amazon Business</p>
+        <p className='Link text-xs md:text-md'>Todays's Deals</p>
         <p className='Link hidden lg:inline-flex'>Electronics</p>
         <p className='Link hidden lg:inline-flex'>Food & Grocery</p>
         <p className='Link hidden lg:inline-flex'>Prime</p>

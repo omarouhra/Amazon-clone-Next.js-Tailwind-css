@@ -24,14 +24,13 @@ export default function Home({ products }) {
       </main>
     </div>
   );
-}
+} 
 
 export async function getServerSideProps(context) {
   // Get >>>  https://fakestoreapi.com/products/1
   const products = await fetch("https://fakestoreapi.com/products/").then(res =>
     res.json()
   );
-
   return {
     props: {
       products,
