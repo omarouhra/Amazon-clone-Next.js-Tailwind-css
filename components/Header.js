@@ -8,7 +8,7 @@ import {
 
 function Header() {
   return (
-    <header>
+    <header id='navigation'>
       {/* Top nav*/}
       <section className='flex items-center bg-amazon_blue px-1 flex-grow py-2'>
         {/* logo */}

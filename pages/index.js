@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
 
@@ -22,9 +23,12 @@ export default function Home({ products }) {
         {/* ProductFeed */}
         <ProductFeed products={products} />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
-} 
+}
 
 export async function getServerSideProps(context) {
   // Get >>>  https://fakestoreapi.com/products/1
