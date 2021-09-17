@@ -128,7 +128,10 @@ function Footer() {
           <a href='#' className='link'>
             Interest-Based Ads
           </a>
-          <p>© 1996-2021, Amazon.com, Inc. or its affiliates</p>
+          <p>
+            © Created by{" "}
+            <a className='link font-extrabold' href='https://www.instagram.com/omar.code/'>@Omar.Code</a>
+          </p>
         </section>
       </section>
     </footer>
