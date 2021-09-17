@@ -22,7 +22,7 @@ function ProductFeed({ products }) {
         src='https://links.papareact.com/dyz'
         alt='ad banner'
       />
-      <div className='md:col-span-2'>
+      <div className='md:col-span-2 flex-grow'>
         {products
           .slice(4, 5)
           .map(({ id, title, price, description, category, image }) => (
@@ -38,7 +38,35 @@ function ProductFeed({ products }) {
           ))}
       </div>
       {products
-        .slice(5, products.length)
+        .slice(5, 13)
+        .map(({ id, title, price, description, category, image }) => (
+          <Product
+            key={id}
+            index={id}
+            title={title}
+            price={price}
+            description={description}
+            category={category}
+            image={image}
+          />
+        ))}
+      <div className='md:col-span-2 flex-grow '>
+        {products
+          .slice(13, 14)
+          .map(({ id, title, price, description, category, image }) => (
+            <Product
+              key={id}
+              index={id}
+              title={title}
+              price={price}
+              description={description}
+              category={category}
+              image={image}
+            />
+          ))}
+      </div>
+      {products
+        .slice(14, products.length)
         .map(({ id, title, price, description, category, image }) => (
           <Product
             key={id}

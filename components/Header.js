@@ -5,8 +5,14 @@ import {
   ShoppingBagIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { useState } from "react";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <header id='navigation'>
       {/* Top nav*/}
@@ -54,21 +60,31 @@ function Header() {
       </section>
 
       {/* Bottom nav */}
+      <section className='relative '>
+        <section className=' flex items-center space-x-3 py-2 pl-6 bg-amazon_blue-light text-white text-sm '>
+          <p className='link flex items-center'>
+            <MenuIcon className='h-6 mr-3' onClick={openMenu} />
+            All
+          </p>
+          <p className='link text-xs md:text-sm'>Prime Video</p>
+          <p className='link text-xs md:text-sm'>Amazon Business</p>
+          <p className='link text-xs md:text-sm'>Todays's Deals</p>
+          <p className='link hidden lg:inline-flex'>Electronics</p>
+          <p className='link hidden lg:inline-flex'>Food & Grocery</p>
+          <p className='link hidden lg:inline-flex'>Prime</p>
+          <p className='link hidden lg:inline-flex'>Buy Again</p>
+          <p className='link hidden lg:inline-flex'>Shopper Toolkit</p>
+          <p className='link hidden lg:inline-flex'>Health & Personal Care</p>
+        </section>
 
-      <section className='flex items-center space-x-3 py-2 pl-6 bg-amazon_blue-light text-white text-sm'>
-        <p className='link flex items-center'>
-          <MenuIcon className='h-6 mr-1' />
-          All
-        </p>
-        <p className='Link text-xs md:text-md'>Prime Video</p>
-        <p className='Link text-xs md:text-md'>Amazon Business</p>
-        <p className='Link text-xs md:text-md'>Todays's Deals</p>
-        <p className='Link hidden lg:inline-flex'>Electronics</p>
-        <p className='Link hidden lg:inline-flex'>Food & Grocery</p>
-        <p className='Link hidden lg:inline-flex'>Prime</p>
-        <p className='Link hidden lg:inline-flex'>Buy Again</p>
-        <p className='Link hidden lg:inline-flex'>Shopper Toolkit</p>
-        <p className='Link hidden lg:inline-flex'>Health & Personal Care</p>
+        <div className={isOpen ? "menu " : "menu -translate-x-full"}>
+          <p className='link'>Electronics</p>
+          <p className='link'>Food & Grocery</p>
+          <p className='link'>Prime</p>
+          <p className='link'>Buy Again</p>
+          <p className='link'>Shopper Toolkit</p>
+          <p className='link'>Health & Personal Care</p>
+        </div>
       </section>
     </header>
   );
