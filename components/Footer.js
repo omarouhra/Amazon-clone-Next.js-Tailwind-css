@@ -10,7 +10,7 @@ function Footer() {
 
       {/* Footer Bottom  */}
       <section className='bg-amazon_blue'>
-        <section className='grid grid-cols-1  space-y-8 md:grid-cols-2 lg:grid-cols-4 md:space-y-0  py-10 lg:py-14  px-6 max-w-screen-2xl mx-auto md:min-h-[550px] lg:min-h-full'>
+        <section className='grid grid-cols-1  space-y-8 md:grid-cols-2 lg:grid-cols-4 md:space-y-0  py-10 lg:py-14  px-6 max-w-screen-2xl mx-auto min-h-[700px] lg:min-h-full'>
           <div>
             <h3 className='font-extrabold mb-2 text-sm'>Get to Know Us</h3>
             <div className='footerContainer'>
