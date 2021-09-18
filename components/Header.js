@@ -6,6 +6,7 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import { useState } from "react";
+import { signIn, SignOut, useSession } from "next-auth/client";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +40,7 @@ function Header() {
 
         {/* right section */}
         <div className='text-white flex items-center space-x-6 text-xs mx-6 whitespace-nowrap '>
-          <div className='link'>
+          <div className='link' onClick={signIn}>
             <p>Hello Omar Ouhra</p>
             <p className='font-extrabold md:text-sm'>Accounts & Listst</p>
           </div>
