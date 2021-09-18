@@ -17,14 +17,14 @@ function Product({ index, title, price, description, category, image }) {
         height={200}
         width={200}
         objectFit='contain'
-        className='group-hover:scale-90 transition duration-500'
+        className='md:group-hover:scale-90 transition duration-500'
       />
       <h4 className='my-3 hover:text-yellow-600'>{title}</h4>
       <div className='flex'>
         {Array(rating)
           .fill()
           .map((_, i) => (
-            <StarIcon className='h-5 text-yellow-500' />
+            <StarIcon key={i} className='h-5 text-yellow-500' />
           ))}
       </div>
 
