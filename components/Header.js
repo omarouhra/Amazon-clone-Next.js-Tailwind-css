@@ -6,10 +6,11 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import { useState } from "react";
-import { signIn, SignOut, useSession } from "next-auth/client";
+import { signIn, signOut, SignOut, useSession } from "next-auth/client";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [session] = useSession();
 
   const openMenu = () => {
     setIsOpen(!isOpen);
@@ -28,7 +29,6 @@ function Header() {
             className='cursor-pointer'
           />
         </div>
-
         {/* Search Bar */}
         <div className='hidden sm:flex bg-yellow-400 hover:bg-yellow-500 items-center h-10  rounded-md flex-grow cursor-pointer '>
           <input
@@ -40,8 +40,15 @@ function Header() {
 
         {/* right section */}
         <div className='text-white flex items-center space-x-6 text-xs mx-6 whitespace-nowrap '>
-          <div className='link' onClick={signIn}>
-            <p>Hello Omar Ouhra</p>
+          {session ? (
+            <img
+              src={session.user.image}
+              alt='user image'
+              className='hidden md:inline w-10 h-10 rounded-full'
+            />
+          ) : null}
+          <div className='link' onClick={!session ? signIn : signOut}>
+            <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
             <p className='font-extrabold md:text-sm'>Accounts & Listst</p>
           </div>
           <div className='link'>
