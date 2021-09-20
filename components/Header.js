@@ -7,10 +7,12 @@ import {
 } from "@heroicons/react/outline";
 import { useState } from "react";
 import { signIn, signOut, SignOut, useSession } from "next-auth/client";
+import { useRouter } from "next/dist/client/router";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [session] = useSession();
+  const router = useRouter();
 
   const openMenu = () => {
     setIsOpen(!isOpen);
@@ -22,6 +24,7 @@ function Header() {
         {/* logo */}
         <div className='mt-2 flex items-center flex-grow sm:flex-grow-0'>
           <Image
+            onClick={() => router.push("/")}
             src='https://links.papareact.com/f90'
             width={150}
             height={40}
@@ -60,7 +63,10 @@ function Header() {
               <span className='absolute -top-1 -right-3 h-4 w-4 text-center  text-black font-bold bg-yellow-500 rounded-full'>
                 0
               </span>
-              <ShoppingCartIcon className=' h-8 cursor-pointer' />
+              <ShoppingCartIcon
+                className=' h-8 cursor-pointer'
+                onClick={() => router.push("/checkout")}
+              />
             </div>
             <p className='hidden md:inline font-extrabold md:text-sm'>Basket</p>
           </div>
