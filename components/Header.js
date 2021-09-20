@@ -58,15 +58,14 @@ function Header() {
             <p>Returns</p>
             <p className='font-extrabold md:text-sm'>& Others</p>
           </div>
-          <div className='link flex items-end '>
+          <div
+            className='link flex items-end '
+            onClick={() => router.push("/checkout")}>
             <div className='relative'>
               <span className='absolute -top-1 -right-3 h-4 w-4 text-center  text-black font-bold bg-yellow-500 rounded-full'>
                 0
               </span>
-              <ShoppingCartIcon
-                className=' h-8 cursor-pointer'
-                onClick={() => router.push("/checkout")}
-              />
+              <ShoppingCartIcon className=' h-8 cursor-pointer' />
             </div>
             <p className='hidden md:inline font-extrabold md:text-sm'>Basket</p>
           </div>
