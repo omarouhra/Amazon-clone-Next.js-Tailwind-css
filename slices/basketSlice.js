@@ -4,18 +4,19 @@ const initialState = {
   items: [],
 };
 
-export const bastketSlice = createSlice({
-  name: "bascket",
+export const basketSlice = createSlice({
+  name: "basket",
   initialState,
   reducers: {
-    addToBasket: (state, action) => {},
+    addToBasket: (state, action) => {
+      state.items = [...state.items, action.payload];
+    },
     removeFromBasket: (state, action) => {},
   },
 });
 
-export const { addToBasket, removeFromBasket } = bastketSlice.actions;
+export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
-// Selectors to pull information from the basket slice
-export const selecItems = state => state.basket.items;
+export const selectItems = state => state.basket.items;
 
-export default bastketSlice.reducer;
+export default basketSlice.reducer;

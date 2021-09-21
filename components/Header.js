@@ -6,13 +6,17 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import { useState } from "react";
-import { signIn, signOut, SignOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/client";
 import { useRouter } from "next/dist/client/router";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/basketSlice";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [session] = useSession();
   const router = useRouter();
+
+  const items = useSelector(selectItems);
 
   const openMenu = () => {
     setIsOpen(!isOpen);
@@ -63,7 +67,7 @@ function Header() {
             onClick={() => router.push("/checkout")}>
             <div className='relative'>
               <span className='absolute -top-1 -right-3 h-4 w-4 text-center  text-black font-bold bg-yellow-500 rounded-full'>
-                0
+                {items.length}
               </span>
               <ShoppingCartIcon className=' h-8 cursor-pointer' />
             </div>
