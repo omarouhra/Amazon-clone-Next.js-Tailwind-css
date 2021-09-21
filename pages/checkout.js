@@ -7,13 +7,14 @@ import CheckoutProduct from "../components/CheckoutProduct";
 function Checkout() {
   const items = useSelector(selectItems);
 
+  console.log(items);
 
   return (
     <div div className='bg-gray-100'>
       <Header />
-      <main className='lg:flex max-w-screen-2xl mx-auto'>
+      <main className='lg:flex lg:max-w-screen-2xl mx-auto'>
         {/* Left Container */}
-        <section className='flex-grow m-5 shadow-sm'>
+        <section className='flex-grow md:m-5 shadow-sm'>
           <Image
             src='https://links.papareact.com/ikj'
             width={1020}
@@ -37,7 +38,6 @@ function Checkout() {
                 image,
                 i,
                 hasPrime,
-
               }) => (
                 <CheckoutProduct
                   key={i}
@@ -48,8 +48,7 @@ function Checkout() {
                   category={category}
                   description={description}
                   image={image}
-                  hasPrime={ hasPrime }
-
+                  hasPrime={hasPrime}
                 />
               )
             )}

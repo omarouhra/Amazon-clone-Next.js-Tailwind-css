@@ -33,7 +33,7 @@ function Product({ index, title, price, description, category, image }) {
       <p className='absolute top-2 right-2 text-xs italic text-gray-400'>
         {category}
       </p>
-      <p>hello</p>
+
       <Image
         src={image}
         height={200}

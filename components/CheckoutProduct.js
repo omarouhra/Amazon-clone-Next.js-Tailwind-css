@@ -1,5 +1,4 @@
 import { StarIcon } from "@heroicons/react/solid";
-import { interopDefault } from "next/dist/server/load-components";
 import Image from "next/image";
 import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
@@ -34,8 +33,12 @@ function CheckoutProduct({
 
     dispatch(addToBasket(product));
   };
+
+  const removeItemFromToBasket = () => {
+    dispatch(removeFromBasket({ index }));
+  };
   return (
-    <div className='grid grid-cols-5'>
+    <div className='flex flex-col space-y-10 lg:grid lg:grid-cols-5'>
       <Image src={image} height={200} width={200} objectFit='contain' />
       {/* middle section */}
 
@@ -62,7 +65,7 @@ function CheckoutProduct({
             <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
           </div>
         )}
-        <p>{ items.filter(item => item.index === index).length }</p>
+        <p>{items.filter(item => item.index === index).length}</p>
       </article>
 
       {/* Buttons */}
@@ -71,7 +74,9 @@ function CheckoutProduct({
         <button className='button' onClick={addItemToBasket}>
           Add to Basket
         </button>
-        <button className='button'>Remove from Basket</button>
+        <button className='button' onClick={removeItemFromToBasket}>
+          Remove from Basket
+        </button>
       </section>
     </div>
   );
