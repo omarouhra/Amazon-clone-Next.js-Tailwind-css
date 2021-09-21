@@ -28,13 +28,12 @@ function Product({ index, title, price, description, category, image }) {
     dispatch(addToBasket(product));
   };
 
-
   return (
     <div className='relative flex flex-col m-5 bg-white z-30 p-10 cursor-pointer md:hover:shadow-2xl transition duration-500 group'>
       <p className='absolute top-2 right-2 text-xs italic text-gray-400'>
         {category}
       </p>
-
+      <p>hello</p>
       <Image
         src={image}
         height={200}
