@@ -2,14 +2,16 @@ import Header from "../components/Header";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/basketSlice";
+import CheckoutProduct from "../components/CheckoutProduct";
 
 function Checkout() {
   const items = useSelector(selectItems);
-  return (
-    <div className='bg-gray-100'>
-      <Header />
 
-      <main className='lg:flex max-w-2xl mx-auto'>
+
+  return (
+    <div div className='bg-gray-100'>
+      <Header />
+      <main className='lg:flex max-w-screen-2xl mx-auto'>
         {/* Left Container */}
         <section className='flex-grow m-5 shadow-sm'>
           <Image
@@ -24,6 +26,33 @@ function Checkout() {
                 ? " Your Amazon Basket is empty"
                 : "Shopping Basket"}
             </h1>
+            {items.map(
+              ({
+                index,
+                title,
+                price,
+                rating,
+                description,
+                category,
+                image,
+                i,
+                hasPrime,
+
+              }) => (
+                <CheckoutProduct
+                  key={i}
+                  index={index}
+                  title={title}
+                  price={price}
+                  rating={rating}
+                  category={category}
+                  description={description}
+                  image={image}
+                  hasPrime={ hasPrime }
+
+                />
+              )
+            )}
           </div>
         </section>
 
@@ -32,5 +61,4 @@ function Checkout() {
     </div>
   );
 }
-
 export default Checkout;

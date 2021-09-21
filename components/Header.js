@@ -56,7 +56,7 @@ function Header() {
           ) : null}
           <div className='link' onClick={!session ? signIn : signOut}>
             <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
-            <p className='font-extrabold md:text-sm'>Accounts & Listst</p>
+            <p className='font-extrabold md:text-sm'>Accounts & Lists</p>
           </div>
           <div className='link'>
             <p>Returns</p>

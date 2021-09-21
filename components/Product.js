@@ -4,10 +4,13 @@ import { useState } from "react";
 import Currency from "react-currency-formatter";
 import { addToBasket } from "../slices/basketSlice";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/basketSlice";
 function Product({ index, title, price, description, category, image }) {
   const [rating] = useState(Math.floor(Math.random() * 2) + 3);
   const [hasPrime] = useState(Math.random() < 0.5);
   const dispatch = useDispatch();
+  const items = useSelector(selectItems);
 
   // fuctions
   const addItemToBasket = () => {
@@ -15,14 +18,16 @@ function Product({ index, title, price, description, category, image }) {
       index,
       title,
       price,
+      rating,
       description,
       category,
       image,
+      hasPrime,
     };
-
 
     dispatch(addToBasket(product));
   };
+
 
   return (
     <div className='relative flex flex-col m-5 bg-white z-30 p-10 cursor-pointer md:hover:shadow-2xl transition duration-500 group'>
@@ -48,7 +53,7 @@ function Product({ index, title, price, description, category, image }) {
 
       <p className='text-xs my-2 line-clamp-2 '>{description}</p>
       <div className='mb-4'>
-        <Currency quantity={price} currency='GBP' />
+        <Currency quantity={price} currency='MAD' />
       </div>
 
       {hasPrime && (
