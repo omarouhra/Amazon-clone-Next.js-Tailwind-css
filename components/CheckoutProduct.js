@@ -64,8 +64,10 @@ function CheckoutProduct({
             />
             <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
           </div>
-        )}
-        <p>{items.filter(item => item.index === index).length}</p>
+        ) }
+        
+        {/* Quantity */}
+        {/* <p>{items.filter(item => item.index === index).length}</p> */}
       </article>
 
       {/* Buttons */}
