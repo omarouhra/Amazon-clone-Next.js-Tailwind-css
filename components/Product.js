@@ -4,13 +4,11 @@ import { useState } from "react";
 import Currency from "react-currency-formatter";
 import { addToBasket } from "../slices/basketSlice";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { selectItems } from "../slices/basketSlice";
+
 function Product({ index, title, price, description, category, image }) {
   const [rating] = useState(Math.floor(Math.random() * 2) + 3);
   const [hasPrime] = useState(Math.random() < 0.5);
   const dispatch = useDispatch();
-  const items = useSelector(selectItems);
 
   // fuctions
   const addItemToBasket = () => {

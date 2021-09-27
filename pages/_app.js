@@ -2,7 +2,7 @@ import "tailwindcss/tailwind.css";
 import "../styles/global.css";
 import { Provider as AuthProvider } from "next-auth/client";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { store } from "../app/store";
 
 function MyApp({ Component, pageProps }) {
   return (
